@@ -22,7 +22,7 @@ const Hero = () => {
               <div className="w-64 h-64 lg:w-80 lg:h-80 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full p-1">
                 <div className="w-full h-full bg-dark-primary rounded-full overflow-hidden flex items-center justify-center">
                   <span className="text-gray-400 text-center">
-                    Photo<br/>de profil
+                    <img src="/photo.jpg" alt="" />
                   </span>
                 </div>
               </div>
@@ -64,7 +64,7 @@ const Hero = () => {
                 </motion.button>
               </Link>
               
-              <a href="/cv.pdf">
+              <a href="/Cv.pdf">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}

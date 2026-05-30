@@ -30,17 +30,17 @@ const Contact = () => {
     try {
       // Remplacez ces IDs par vos vrais identifiants EmailJS
       // Pour utiliser EmailJS, inscrivez-vous sur https://www.emailjs.com/
-      const result = await emailjs.send(
-        'YOUR_SERVICE_ID',     // Service ID
-        'YOUR_TEMPLATE_ID',    // Template ID
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          message: formData.message,
-          to_name: 'Christian Noukimi'
-        },
-        'YOUR_PUBLIC_KEY'      // Public Key
-      )
+    const result = await emailjs.send(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        to_name: 'Christian Noukimi'
+      },
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    )
       
       setStatus({ type: 'success', message: 'Message envoyé avec succès ! Je vous répondrai rapidement.' })
       setFormData({ name: '', email: '', message: '' })

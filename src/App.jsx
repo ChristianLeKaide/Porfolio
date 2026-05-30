@@ -5,15 +5,21 @@ import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
 import Home from './pages/Home'
 import About from './pages/About'
-import Experience from "./pages/Experience"
-import Skills from "./pages/Skills"
-import Projects from "./pages/Projects"
-import Contact from "./pages/Contact"
+import Experience from './pages/Experience'
+import Skills from './pages/Skills'
+import Projects from './pages/Projects'
+import Contact from './pages/Contact'
+import ScrollToTop from './components/common/ScrollToTop'
 
 function App() {
   return (
-    <Router>
-      <div className="min-h-screen bg-dark-primary flex flex-col">
+    <Router
+      future={{
+        v7_startTransition: true,      // Pour supprimer le premier avertissement
+        v7_relativeSplatPath: true,    // Pour supprimer le deuxième avertissement
+      }}
+    >
+      <div className="min-h-screen bg-white dark:bg-dark-primary transition-colors duration-300 flex flex-col">
         <Header />
         <main className="flex-grow">
           <AnimatePresence mode="wait">
@@ -28,6 +34,7 @@ function App() {
           </AnimatePresence>
         </main>
         <Footer />
+        <ScrollToTop />
       </div>
     </Router>
   )

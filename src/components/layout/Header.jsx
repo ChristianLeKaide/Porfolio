@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { HiMenu, HiX } from 'react-icons/hi'
+import ThemeToggle from '../common/ThemeToggle'
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -46,6 +47,7 @@ const Header = () => {
                 )}
               </Link>
             ))}
+            <ThemeToggle />
           </div>
 
           {/* Mobile Menu Button */}

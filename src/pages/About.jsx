@@ -43,7 +43,7 @@ const About = () => {
                 {/* Photo de profil */}
                 <div className="w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden border-4 border-cyan-400">
                   <div className="w-full h-full bg-gray-700 flex items-center justify-center">
-                    <span className="text-gray-400">Photo</span>
+                    <span className="text-gray-400"><img src="/photo.jpg" alt="" /></span>
                   </div>
                 </div>
                 
@@ -56,7 +56,7 @@ const About = () => {
                 
                 {/* Bouton CV */}
                 <motion.a
-                  href="/cv.pdf"
+                  href="/Cv.pdf"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="inline-flex items-center gap-2 px-6 py-3 bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg font-semibold transition-all"
