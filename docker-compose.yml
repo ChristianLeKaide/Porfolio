@@ -1,0 +1,27 @@
+# docker-compose.yml
+version: "3.8"
+
+services:
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: christian-portfolio-react-dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    command: npm run dev
+
+  prod:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: christian-portfolio-react-prod
+    ports:
+      - "80:80"
+    environment:
+      - NODE_ENV=production
