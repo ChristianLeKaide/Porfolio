@@ -3,6 +3,7 @@
  * Includes smooth animations and icon transitions
  */
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { FaSun, FaMoon } from 'react-icons/fa'
 import { useTheme } from '../../context/ThemeContext'
 import './ThemeToggle.css'
@@ -17,12 +18,13 @@ import './ThemeToggle.css'
  */
 const ThemeToggle = () => {
   const { darkMode, toggleTheme } = useTheme()
+  const { t } = useTranslation()
 
   return (
     <motion.button
       onClick={toggleTheme}
       className="theme-toggle"
-      aria-label={darkMode ? 'Passer en mode clair' : 'Passer en mode sombre'}
+      aria-label={darkMode ? t('theme.switchToLight') : t('theme.switchToDark')}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       transition={{ type: 'spring', stiffness: 400, damping: 10 }}

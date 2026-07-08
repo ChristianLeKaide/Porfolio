@@ -1,0 +1,251 @@
+{
+  "meta": {
+    "title": "Christian Noukimi | Full Stack & DevOps Developer"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "experience": "Experience",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "role": "Full Stack Developer / DevOps",
+    "bio": "Master's degree in Information Systems Architecture, passionate about software development and DevOps. Based in France, currently looking for a permanent or fixed-term position in full stack development, DevOps or DevSecOps.",
+    "typing": ["Full Stack Developer", "DevOps Engineer", "DevSecOps", "React, Laravel & Node.js", "Python & Django"],
+    "viewProjects": "View my projects",
+    "downloadCV": "Download my CV",
+    "contactMe": "Contact me"
+  },
+  "footer": {
+    "role": "Full Stack Developer / DevOps",
+    "rights": "© 2026 Christian Noukimi. All rights reserved.",
+    "builtWith": "Built with React, Tailwind CSS and Framer Motion"
+  },
+  "about": {
+    "title": "About Me",
+    "role": "Full Stack Developer / DevOps",
+    "downloadCV": "Download my CV",
+    "education": {
+      "title": "Academic Background",
+      "degree1": "Master's in Information Systems Architecture",
+      "school1": "ECOLE IT, Orléans - France",
+      "period1": "2023 – 2026",
+      "degree2": "Bachelor's in Computer Science",
+      "school2": "University of Yaoundé 1, Yaoundé - Cameroon",
+      "period2": "2021"
+    },
+    "goals": {
+      "title": "Professional Goals",
+      "text": "I'm currently looking for a permanent or fixed-term position in full stack development, DevOps or DevSecOps. My goal is to actively contribute to designing and securing infrastructures while strengthening my technical and regulatory expertise."
+    },
+    "expertise": {
+      "title": "Areas of Expertise",
+      "tags": ["Full Stack Development", "DevOps", "DevSecOps", "IT/OT Security", "CI/CD", "AWS Cloud", "Training"]
+    }
+  },
+  "experience": {
+    "title": "Professional Experience",
+    "subtitle": "Discover my journey in full stack development, DevOps and DevSecOps",
+    "items": [
+      {
+        "title": "Full Stack Developer",
+        "company": "Henddu SAS - Lille",
+        "period": "2026",
+        "description": [
+          "Development and integration of REST APIs for collecting, processing and distributing air quality data, documented via Swagger (OpenAPI)",
+          "Design of web interfaces and interactive dashboards (air quality indicators, pollutants, AQI indices)",
+          "Development of an automated module generating regulatory air quality reports in PDF format",
+          "Management of measurement stations, pollution episodes, alerts and environmental reports",
+          "Docker containerization (dev and prod) for reproducible deployments",
+          "Agile (Scrum) collaboration with technical teams and scientific experts"
+        ]
+      },
+      {
+        "title": "Full Stack Developer",
+        "company": "CampusConnects — University Management Platform",
+        "period": "2025",
+        "description": [
+          "Complete design of the functional architecture and UX/UI (web and mobile) with Adobe XD",
+          "React frontend development faithful to the mockups, integrated with the backend API",
+          "REST API development: user management (JWT authentication, roles) and course management",
+          "Interactive API documentation with Swagger (OpenAPI)",
+          "Unit test writing and application deployment on a VPS"
+        ]
+      },
+      {
+        "title": "Full Stack Python Developer",
+        "company": "Nexgen Technology",
+        "period": "Feb. 2023 – July 2023",
+        "description": [
+          "Full stack web application development with Python / Django",
+          "Design and integration of REST APIs (authentication, user management, business endpoints)",
+          "Application security: SQL injection protection, input validation, session management",
+          "Containerization and deployment of multi-service applications with Docker",
+          "Participation in security audits and technical report writing"
+        ]
+      },
+      {
+        "title": "Full Stack Python Development Trainer (Fixed-term)",
+        "company": "Developers Institute",
+        "period": "July 2023 – Dec. 2023",
+        "description": [
+          "Delivered Full Stack training covering Python, Django, HTML5, CSS3, JavaScript, Bootstrap and React.js",
+          "Mentored students on complete web projects, from requirements analysis to deployment",
+          "Taught best practices: software architecture, OOP, code structuring, error handling",
+          "Supported learners in using Git and GitHub for collaborative version control"
+        ]
+      }
+    ]
+  },
+  "skills": {
+    "title": "Technical Skills",
+    "subtitle": "An overview of my technical skills in full stack development, DevOps and DevSecOps",
+    "learning": "Currently learning:",
+    "learningHighlight": "Advanced Kubernetes | AWS Certified Cloud Practitioner | AI & DevOps",
+    "categories": [
+      {
+        "category": "DevOps & Cloud",
+        "skills": [
+          { "description": "Multi-service application containerization" },
+          { "description": "Container orchestration" },
+          { "description": "Continuous integration and deployment" },
+          { "description": "Cloud computing (AWS Certified Cloud Practitioner - in progress)" },
+          { "description": "Static analysis and Quality Gate" },
+          { "description": "Vulnerability scanning (SCA)" },
+          { "description": "Monitoring and observability" }
+        ]
+      },
+      {
+        "category": "Languages",
+        "skills": [
+          { "description": "Web development and scripting" },
+          { "description": "Web development" },
+          { "description": "Enterprise applications" },
+          { "description": "Web backend" }
+        ]
+      },
+      {
+        "category": "Frameworks",
+        "skills": [
+          { "description": "Modern frontend" },
+          { "description": "Python framework" },
+          { "description": "JavaScript backend" },
+          { "description": "Java framework" },
+          { "description": "PHP framework" },
+          { "description": "CSS framework" }
+        ]
+      },
+      {
+        "category": "Databases & Tools",
+        "skills": [
+          { "description": "Relational database" },
+          { "description": "SQL database" },
+          { "description": "NoSQL database" },
+          { "description": "Embedded database" },
+          { "description": "API testing and documentation" },
+          { "description": "Interactive API documentation" }
+        ]
+      },
+      {
+        "category": "Application Security (DevSecOps)",
+        "skills": [
+          { "description": "Static code analysis" },
+          { "description": "Dependency and Docker image scanning" },
+          { "description": "Headless dynamic testing in CI/CD" },
+          { "description": "SQLi protection, input validation, session management" }
+        ]
+      }
+    ]
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "subtitle": "Discover my most significant projects in full stack development and DevSecOps",
+    "clickToView": "Click to see more",
+    "modal": {
+      "details": "Project details",
+      "technologies": "Technologies used",
+      "viewGithub": "View on GitHub",
+      "liveDemo": "Live demo"
+    },
+    "items": [
+      {
+        "title": "CampusConnects",
+        "description": "University management platform (web & mobile)",
+        "longDescription": "Complete design and development of a university management platform: functional architecture and UX/UI on Adobe XD, React frontend faithful to the mockups, backend REST API (JWT authentication, roles, course management) documented with Swagger, unit tests and deployment on a VPS.",
+        "details": [
+          "Functional architecture and UX/UI mockups (Adobe XD)",
+          "JWT authentication and role management",
+          "Course management: creation, enrollment, tracking",
+          "Interactive API documentation with Swagger (OpenAPI)",
+          "Unit tests and deployment on a VPS"
+        ]
+      },
+      {
+        "title": "DevSecOps | Automated Application Security",
+        "description": "Secure CI/CD pipeline with SAST, SCA and DAST",
+        "longDescription": "Design and implementation of a secure DevSecOps CI/CD pipeline on GitHub Actions, automatically integrating security checks on every commit and pull request: static analysis, dependency analysis and dynamic testing, with automatic generation and publication of security reports.",
+        "details": [
+          "SonarQube (SAST) with a blocking Quality Gate",
+          "Trivy (SCA) for dependency and Docker image analysis",
+          "OWASP ZAP (DAST) headless scans simulating attacks on the deployed app",
+          "Automatic generation and publication of security reports in CI/CD",
+          "Analysis, prioritization and remediation of detected vulnerabilities"
+        ]
+      },
+      {
+        "title": "TV Show App (TMDB API)",
+        "description": "Search and discover TV shows via the TMDB API",
+        "longDescription": "React web application for searching, browsing and discovering TV shows using The Movie Database (TMDB) API: posters, synopsis, cast, ratings, seasons, episodes and recommendations, with advanced sorting and filtering.",
+        "details": [
+          "Integration of the TMDB REST API",
+          "Responsive interface with React Hooks and state management",
+          "Navigation via React Router",
+          "Sorting and filtering by popularity, genre, release date and rating",
+          "Automated deployment with continuous integration via GitHub"
+        ]
+      }
+    ]
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "subtitle": "Feel free to reach out for any professional opportunity or question",
+    "info": {
+      "title": "Information",
+      "email": "Email",
+      "phone": "Phone",
+      "location": "Location",
+      "locationValue": "Orléans, France"
+    },
+    "follow": "Follow me",
+    "map": {
+      "title": "My location",
+      "iframeTitle": "Orléans map"
+    },
+    "form": {
+      "title": "Send me a message",
+      "name": "Full name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "message": "Message",
+      "messagePlaceholder": "Your message...",
+      "sending": "Sending...",
+      "send": "Send message",
+      "success": "Message sent successfully! I'll get back to you soon.",
+      "error": "Something went wrong. Please try again or email me directly."
+    }
+  },
+  "language": {
+    "fr": "Français",
+    "en": "English"
+  },
+  "theme": {
+    "switchToLight": "Switch to light mode",
+    "switchToDark": "Switch to dark mode"
+  },
+  "common": {
+    "loading": "Loading..."
+  }
+}

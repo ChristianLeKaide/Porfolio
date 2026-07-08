@@ -1,14 +1,17 @@
 // src/components/home/Hero.jsx
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import TypingAnimation from './TypingAnimation'
 import ParticleBackground from '../common/ParticleBackground'
 
 const Hero = () => {
+  const { t } = useTranslation()
+
   return (
     <section className="min-h-screen relative flex items-center justify-center overflow-hidden pt-20">
       <ParticleBackground />
-      
+
       <div className="container mx-auto px-6 z-10">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           {/* Photo de profil */}
@@ -40,18 +43,16 @@ const Hero = () => {
             <h1 className="text-4xl lg:text-6xl font-bold mb-6">
               Christian <span className="gradient-text">Noukimi</span>
             </h1>
-            
+
             <p className="text-xl lg:text-2xl text-gray-700 dark:text-gray-300 mb-4">
-              <span className="text-cyan-400">Développeur Full Stack / DevOps</span>
+              <span className="text-cyan-400">{t('hero.role')}</span>
             </p>
 
             <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto lg:mx-0">
-              Diplômé Master 2 Architecture des systèmes d'informations, passionné par le
-              développement logiciel et le DevOps. Basé en France, je recherche un CDI/CDD
-              en développement fullstack, DevOps ou DevSecOps.
+              {t('hero.bio')}
             </p>
 
-            <TypingAnimation texts={["Full Stack Developer", "DevOps Engineer", "DevSecOps", "React & Node.js", "Python & Django", "Formateur Python"]} />
+            <TypingAnimation texts={t('hero.typing', { returnObjects: true })} />
 
             {/* Boutons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mt-8">
@@ -61,27 +62,27 @@ const Hero = () => {
                   whileTap={{ scale: 0.95 }}
                   className="px-8 py-3 bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg font-semibold transition-colors shadow-lg shadow-cyan-500/25 w-full sm:w-auto"
                 >
-                  Voir mes projets
+                  {t('hero.viewProjects')}
                 </motion.button>
               </Link>
-              
+
               <a href="/Cv.pdf">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="px-8 py-3 border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400/10 rounded-lg font-semibold transition-all w-full sm:w-auto"
                 >
-                  Télécharger mon CV
+                  {t('hero.downloadCV')}
                 </motion.button>
               </a>
-              
+
               <Link to="/contact">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="px-8 py-3 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-cyan-400 hover:text-cyan-400 rounded-lg font-semibold transition-all w-full sm:w-auto"
                 >
-                  Me contacter
+                  {t('hero.contactMe')}
                 </motion.button>
               </Link>
             </div>

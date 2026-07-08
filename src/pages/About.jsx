@@ -1,14 +1,18 @@
 // src/pages/About.jsx
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
+import { useTranslation } from 'react-i18next'
 import { FaDownload, FaGraduationCap, FaShieldAlt, FaChartLine } from 'react-icons/fa'
 
 const About = () => {
+  const { t } = useTranslation()
   // Hook d'animation - déclenche l'animation quand l'élément entre dans le viewport
   const [ref, inView] = useInView({
     triggerOnce: true,  // L'animation ne se déclenche qu'une fois
     threshold: 0.1,     // Se déclenche quand 10% de l'élément est visible
   })
+
+  const expertiseTags = t('about.expertise.tags', { returnObjects: true })
 
   return (
     <div className="pt-24 pb-16 min-h-screen">
@@ -21,7 +25,7 @@ const About = () => {
           className="text-center mb-12"
         >
           <h1 className="text-4xl lg:text-5xl font-bold gradient-text mb-4">
-            À Propos de Moi
+            {t('about.title')}
           </h1>
           <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto"></div>
         </motion.div>
@@ -51,9 +55,9 @@ const About = () => {
                   Christian Noukimi
                 </h2>
                 <p className="text-gray-600 dark:text-gray-400 mb-4">
-                  Développeur Full Stack / DevOps
+                  {t('about.role')}
                 </p>
-                
+
                 {/* Bouton CV */}
                 <motion.a
                   href="/Cv.pdf"
@@ -62,7 +66,7 @@ const About = () => {
                   className="inline-flex items-center gap-2 px-6 py-3 bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg font-semibold transition-all"
                 >
                   <FaDownload />
-                  Télécharger mon CV
+                  {t('about.downloadCV')}
                 </motion.a>
               </div>
             </div>
@@ -74,22 +78,22 @@ const About = () => {
             <div className="bg-gray-50 dark:bg-dark-secondary/50 p-6 rounded-xl cyber-border">
               <div className="flex items-center gap-3 mb-4">
                 <FaGraduationCap className="text-cyan-400 text-2xl" />
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white">Parcours Académique</h3>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white">{t('about.education.title')}</h3>
               </div>
               <div className="space-y-4">
                 <div>
                   <h4 className="text-lg font-semibold text-cyan-400">
-                    Master 2 Architecture des systèmes d'informations
+                    {t('about.education.degree1')}
                   </h4>
-                  <p className="text-gray-700 dark:text-gray-300">ECOLE IT, Orléans - France</p>
-                  <p className="text-gray-500 dark:text-gray-500 text-sm">2023 – 2026</p>
+                  <p className="text-gray-700 dark:text-gray-300">{t('about.education.school1')}</p>
+                  <p className="text-gray-500 dark:text-gray-500 text-sm">{t('about.education.period1')}</p>
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold text-cyan-400">
-                    Licence en informatique fondamentale
+                    {t('about.education.degree2')}
                   </h4>
-                  <p className="text-gray-700 dark:text-gray-300">Université de Yaoundé 1, Yaoundé - Cameroun</p>
-                  <p className="text-gray-500 dark:text-gray-500 text-sm">2021</p>
+                  <p className="text-gray-700 dark:text-gray-300">{t('about.education.school2')}</p>
+                  <p className="text-gray-500 dark:text-gray-500 text-sm">{t('about.education.period2')}</p>
                 </div>
               </div>
             </div>
@@ -98,13 +102,10 @@ const About = () => {
             <div className="bg-gray-50 dark:bg-dark-secondary/50 p-6 rounded-xl cyber-border">
               <div className="flex items-center gap-3 mb-4">
                 <FaShieldAlt className="text-cyan-400 text-2xl" />
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white">Objectifs Professionnels</h3>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white">{t('about.goals.title')}</h3>
               </div>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                Je recherche un CDI/CDD en développement fullstack, DevOps ou DevSecOps
-                dès à présent. Mon objectif est de contribuer activement à la conception
-                et la sécurisation des infrastructures tout en renforçant mon expertise
-                technique et réglementaire.
+                {t('about.goals.text')}
               </p>
             </div>
 
@@ -112,10 +113,10 @@ const About = () => {
             <div className="bg-gray-50 dark:bg-dark-secondary/50 p-6 rounded-xl cyber-border">
               <div className="flex items-center gap-3 mb-4">
                 <FaChartLine className="text-cyan-400 text-2xl" />
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white">Domaines d'Expertise</h3>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white">{t('about.expertise.title')}</h3>
               </div>
               <div className="flex flex-wrap gap-2">
-                {["Développement Full Stack", "DevOps", "DevSecOps", "Sécurité IT/OT", "CI/CD", "Cloud AWS", "Formation"].map((skill) => (
+                {expertiseTags.map((skill) => (
                   <span key={skill} className="px-3 py-1 bg-cyan-500/10 text-cyan-400 rounded-full text-sm border border-cyan-500/20">
                     {skill}
                   </span>

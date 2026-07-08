@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
 import SectionHeader from '../components/common/SectionHeader'
 import ProjectCard from '../components/projects/ProjectCard'
@@ -14,20 +15,27 @@ import '../styles/pages/Projects.css'
  * @returns {JSX.Element} Projects page with project grid and modal
  */
 const Projects = () => {
+  const { t } = useTranslation()
   const [selectedProject, setSelectedProject] = useState(null)
+
+  const translatedItems = t('projects.items', { returnObjects: true })
+  const projects = projectsData.map((project, index) => ({
+    ...project,
+    ...translatedItems[index]
+  }))
 
   return (
     <div className="projects-page">
       <div className="projects-page__container">
         {/* Page header */}
         <SectionHeader
-          title="Projets Réalisés"
-          subtitle="Découvrez mes projets les plus significatifs en développement full stack et DevSecOps"
+          title={t('projects.title')}
+          subtitle={t('projects.subtitle')}
         />
 
         {/* Projects grid */}
         <div className="projects-page__grid">
-          {projectsData.map((project, index) => (
+          {projects.map((project, index) => (
             <ProjectCard
               key={project.id}
               project={project}
@@ -82,7 +90,7 @@ const Projects = () => {
                 {/* Project details */}
                 <div className="projects-page__modal-section">
                   <h4 className="projects-page__modal-section-title">
-                    Détails du projet
+                    {t('projects.modal.details')}
                   </h4>
                   <ul className="projects-page__modal-details">
                     {selectedProject.details.map((detail, i) => (
@@ -97,7 +105,7 @@ const Projects = () => {
                 {/* Technologies */}
                 <div className="projects-page__modal-section">
                   <h4 className="projects-page__modal-section-title">
-                    Technologies utilisées
+                    {t('projects.modal.technologies')}
                   </h4>
                   <div className="projects-page__modal-technologies">
                     {selectedProject.technologies.map((tech) => (
@@ -116,7 +124,7 @@ const Projects = () => {
                       size="md"
                       icon={<FaGithub />}
                     >
-                      Voir sur GitHub
+                      {t('projects.modal.viewGithub')}
                     </Button>
                   )}
                   {selectedProject.links?.demo && (
@@ -125,7 +133,7 @@ const Projects = () => {
                       size="md"
                       icon={<FaExternalLinkAlt />}
                     >
-                      Demo en ligne
+                      {t('projects.modal.liveDemo')}
                     </Button>
                   )}
                 </div>

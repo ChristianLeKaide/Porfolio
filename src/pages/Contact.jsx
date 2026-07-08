@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { FaEnvelope, FaLinkedin, FaPhone, FaMapMarkerAlt, FaGithub } from 'react-icons/fa'
 import emailjs from '@emailjs/browser'
 import SectionHeader from '../components/common/SectionHeader'
@@ -13,6 +14,7 @@ import '../styles/pages/Contact.css'
  * @returns {JSX.Element} Contact page with form and contact details
  */
 const Contact = () => {
+  const { t } = useTranslation()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -56,14 +58,14 @@ const Contact = () => {
 
       setStatus({
         type: 'success',
-        message: 'Message envoyé avec succès ! Je vous répondrai rapidement.'
+        message: t('contact.form.success')
       })
       setFormData({ name: '', email: '', message: '' })
     } catch (error) {
       console.error('Erreur:', error)
       setStatus({
         type: 'error',
-        message: 'Une erreur est survenue. Veuillez réessayer ou m\'envoyer un email directement.'
+        message: t('contact.form.error')
       })
     } finally {
       setIsLoading(false)
@@ -75,8 +77,8 @@ const Contact = () => {
       <div className="contact-page__container">
         {/* Page header */}
         <SectionHeader
-          title="Me Contacter"
-          subtitle="N'hésitez pas à me contacter pour toute opportunité professionnelle ou question"
+          title={t('contact.title')}
+          subtitle={t('contact.subtitle')}
         />
 
         <div className="contact-page__content">
@@ -89,34 +91,34 @@ const Contact = () => {
           >
             {/* Contact details */}
             <div className="contact-page__info-card">
-              <h2 className="contact-page__card-title">Informations</h2>
+              <h2 className="contact-page__card-title">{t('contact.info.title')}</h2>
 
               <div className="contact-page__info-list">
                 <ContactInfo
                   icon={<FaEnvelope />}
-                  label="Email"
+                  label={t('contact.info.email')}
                   value="noukimichristian@gmail.com"
                   href="mailto:noukimichristian@gmail.com"
                 />
 
                 <ContactInfo
                   icon={<FaPhone />}
-                  label="Téléphone"
+                  label={t('contact.info.phone')}
                   value="+33 7 58 26 09 14"
                   href="tel:+33758260914"
                 />
 
                 <ContactInfo
                   icon={<FaMapMarkerAlt />}
-                  label="Localisation"
-                  value="Orléans, France"
+                  label={t('contact.info.location')}
+                  value={t('contact.info.locationValue')}
                 />
               </div>
             </div>
 
             {/* Social links */}
             <div className="contact-page__info-card">
-              <h2 className="contact-page__card-title">Me suivre</h2>
+              <h2 className="contact-page__card-title">{t('contact.follow')}</h2>
               <div className="contact-page__social-links">
                 <motion.a
                   whileHover={{ scale: 1.1 }}
@@ -144,7 +146,7 @@ const Contact = () => {
 
             {/* Map */}
             <div className="contact-page__info-card">
-              <h2 className="contact-page__card-title">Ma localisation</h2>
+              <h2 className="contact-page__card-title">{t('contact.map.title')}</h2>
               <div className="contact-page__map">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d170515.9853983784!2d1.7898244999999998!3d47.902964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e4d9d8f2b6a32f%3A0x40b82c3688b3ba0!2sOrl%C3%A9ans%2C%20France!5e0!3m2!1sfr!2sfr!4v1699999999999!5m2!1sfr!2sfr"
@@ -154,7 +156,7 @@ const Contact = () => {
                   allowFullScreen=""
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Map d'Orléans"
+                  title={t('contact.map.iframeTitle')}
                 ></iframe>
               </div>
             </div>
@@ -168,13 +170,13 @@ const Contact = () => {
             className="contact-page__form-section"
           >
             <div className="contact-page__form-card">
-              <h2 className="contact-page__card-title">Envoyez-moi un message</h2>
+              <h2 className="contact-page__card-title">{t('contact.form.title')}</h2>
 
               <form onSubmit={handleSubmit} className="contact-page__form">
                 {/* Name input */}
                 <div className="contact-page__form-group">
                   <label htmlFor="name" className="contact-page__form-label">
-                    Nom complet
+                    {t('contact.form.name')}
                   </label>
                   <input
                     type="text"
@@ -184,14 +186,14 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     className="contact-page__form-input"
-                    placeholder="Votre nom"
+                    placeholder={t('contact.form.namePlaceholder')}
                   />
                 </div>
 
                 {/* Email input */}
                 <div className="contact-page__form-group">
                   <label htmlFor="email" className="contact-page__form-label">
-                    Email
+                    {t('contact.form.email')}
                   </label>
                   <input
                     type="email"
@@ -201,14 +203,14 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     className="contact-page__form-input"
-                    placeholder="votre@email.com"
+                    placeholder={t('contact.form.emailPlaceholder')}
                   />
                 </div>
 
                 {/* Message textarea */}
                 <div className="contact-page__form-group">
                   <label htmlFor="message" className="contact-page__form-label">
-                    Message
+                    {t('contact.form.message')}
                   </label>
                   <textarea
                     id="message"
@@ -218,7 +220,7 @@ const Contact = () => {
                     required
                     rows="6"
                     className="contact-page__form-textarea"
-                    placeholder="Votre message..."
+                    placeholder={t('contact.form.messagePlaceholder')}
                   ></textarea>
                 </div>
 
@@ -239,7 +241,7 @@ const Contact = () => {
                   disabled={isLoading}
                   className="contact-page__submit-button"
                 >
-                  {isLoading ? 'Envoi en cours...' : 'Envoyer le message'}
+                  {isLoading ? t('contact.form.sending') : t('contact.form.send')}
                 </Button>
               </form>
             </div>

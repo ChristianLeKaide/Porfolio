@@ -1,7 +1,10 @@
 // src/components/common/Loader.jsx
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 
 const Loader = () => {
+  const { t } = useTranslation()
+
   return (
     <div className="fixed inset-0 bg-white dark:bg-dark-primary flex items-center justify-center z-50">
       <div className="text-center">
@@ -10,7 +13,7 @@ const Loader = () => {
           transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
           className="w-16 h-16 border-4 border-cyan-500/20 border-t-cyan-500 rounded-full"
         />
-        <p className="mt-4 text-cyan-400">Chargement...</p>
+        <p className="mt-4 text-cyan-400">{t('common.loading')}</p>
       </div>
     </div>
   )

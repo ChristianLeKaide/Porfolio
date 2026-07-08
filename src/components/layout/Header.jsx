@@ -2,20 +2,23 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { HiMenu, HiX } from 'react-icons/hi'
 import ThemeToggle from '../common/ThemeToggle'
+import LanguageToggle from '../common/LanguageToggle'
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
   const location = useLocation()
+  const { t } = useTranslation()
 
   const navItems = [
-    { name: 'Accueil', path: '/' },
-    { name: 'À propos', path: '/about' },
-    { name: 'Expériences', path: '/experience' },
-    { name: 'Compétences', path: '/skills' },
-    { name: 'Projets', path: '/projects' },
-    { name: 'Contact', path: '/contact' },
+    { name: t('nav.home'), path: '/' },
+    { name: t('nav.about'), path: '/about' },
+    { name: t('nav.experience'), path: '/experience' },
+    { name: t('nav.skills'), path: '/skills' },
+    { name: t('nav.projects'), path: '/projects' },
+    { name: t('nav.contact'), path: '/contact' },
   ]
 
   return (
@@ -27,7 +30,7 @@ const Header = () => {
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <Link
                 key={item.path}
@@ -47,6 +50,7 @@ const Header = () => {
                 )}
               </Link>
             ))}
+            <LanguageToggle />
             <ThemeToggle />
           </div>
 
@@ -81,6 +85,10 @@ const Header = () => {
                 {item.name}
               </Link>
             ))}
+            <div className="flex items-center gap-3 px-3 pt-2">
+              <LanguageToggle />
+              <ThemeToggle />
+            </div>
           </motion.div>
         )}
       </nav>

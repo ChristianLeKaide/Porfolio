@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
 import Card from '../common/Card'
 import Button from '../common/Button'
@@ -29,6 +30,8 @@ import '../../styles/components/ProjectCard.css'
  * />
  */
 const ProjectCard = ({ project, onClick, index = 0 }) => {
+  const { t } = useTranslation()
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -47,7 +50,7 @@ const ProjectCard = ({ project, onClick, index = 0 }) => {
         <div className={`project-card__header bg-gradient-to-r ${project.color}`}>
           <project.icon className="project-card__icon" />
           <div className="project-card__overlay">
-            <span className="project-card__overlay-text">Cliquez pour voir plus</span>
+            <span className="project-card__overlay-text">{t('projects.clickToView')}</span>
           </div>
         </div>
 

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { FaLock } from 'react-icons/fa'
 import SectionHeader from '../components/common/SectionHeader'
 import SkillCard from '../components/skills/SkillCard'
@@ -12,20 +13,31 @@ import '../styles/pages/Skills.css'
  * @returns {JSX.Element} Skills page with skill categories
  */
 const Skills = () => {
+  const { t } = useTranslation()
   const [selectedSkill, setSelectedSkill] = useState(null)
+
+  const translatedCategories = t('skills.categories', { returnObjects: true })
+  const categories = skillsData.map((cat, index) => ({
+    ...cat,
+    category: translatedCategories[index].category,
+    skills: cat.skills.map((skill, skillIndex) => ({
+      ...skill,
+      description: translatedCategories[index].skills[skillIndex].description
+    }))
+  }))
 
   return (
     <div className="skills-page">
       <div className="skills-page__container">
         {/* Page header */}
         <SectionHeader
-          title="Compétences Techniques"
-          subtitle="Un aperçu de mes compétences techniques en développement full stack, DevOps et DevSecOps"
+          title={t('skills.title')}
+          subtitle={t('skills.subtitle')}
         />
 
         {/* Skills grid */}
         <div className="skills-page__grid">
-          {skillsData.map((category, index) => (
+          {categories.map((category, index) => (
             <SkillCard
               key={category.id}
               category={category}
@@ -45,9 +57,9 @@ const Skills = () => {
           <div className="skills-page__learning-content">
             <FaLock className="skills-page__learning-icon" />
             <span className="skills-page__learning-text">
-              En apprentissage continu :
+              {t('skills.learning')}
               <span className="skills-page__learning-highlight">
-                Kubernetes Avancé | AWS Certified Cloud Practitioner | IA & DevOps
+                {t('skills.learningHighlight')}
               </span>
             </span>
           </div>

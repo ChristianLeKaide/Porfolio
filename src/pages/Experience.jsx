@@ -1,76 +1,20 @@
 // src/pages/Experience.jsx
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
+import { useTranslation } from 'react-i18next'
 import { FaLeaf, FaGraduationCap, FaCode, FaChalkboardTeacher } from 'react-icons/fa'
 
-const experiences = [
-  {
-    id: 1,
-    title: "Développeur Full Stack",
-    company: "Henddu SAS - Lille",
-    period: "2026",
-    icon: FaLeaf,
-    description: [
-      "Développement et intégration d'API REST pour la collecte, le traitement et la diffusion des données de qualité de l'air, documentées via Swagger (OpenAPI)",
-      "Conception d'interfaces web et de tableaux de bord interactifs (indicateurs qualité de l'air, polluants, indices AQI)",
-      "Développement d'un module de génération automatisée de bulletins réglementaires au format PDF",
-      "Gestion des stations de mesure, épisodes de pollution, alertes et rapports environnementaux",
-      "Containerisation Docker (dev et prod) pour des déploiements reproductibles",
-      "Collaboration Agile (Scrum) avec équipes techniques et experts scientifiques"
-    ],
-    technologies: ["API REST", "Swagger", "Docker", "React", "Scrum"],
-    color: "from-emerald-400 to-green-500"
-  },
-  {
-    id: 2,
-    title: "Développeur Full Stack",
-    company: "CampusConnects — Plateforme de gestion universitaire",
-    period: "2025",
-    icon: FaGraduationCap,
-    description: [
-      "Conception complète de l'architecture fonctionnelle et UX/UI (web et mobile) avec Adobe XD",
-      "Développement frontend React fidèle aux maquettes et intégration API backend",
-      "Développement d'API REST : gestion des utilisateurs (authentification JWT, rôles) et gestion des cours",
-      "Documentation interactive des API avec Swagger (OpenAPI)",
-      "Rédaction des tests unitaires et déploiement de l'application sur VPS"
-    ],
-    technologies: ["React", "JWT", "REST API", "Swagger", "VPS"],
-    color: "from-cyan-400 to-blue-500"
-  },
-  {
-    id: 3,
-    title: "Développeur Full Stack Python",
-    company: "Nexgen Technology",
-    period: "Fév. 2023 – Juillet 2023",
-    icon: FaCode,
-    description: [
-      "Développement d'applications web full stack avec Python / Django",
-      "Conception et intégration d'API REST (authentification, gestion des utilisateurs, endpoints métier)",
-      "Sécurisation des applications : protection contre SQLi, validation des entrées, gestion des sessions",
-      "Containerisation et déploiement d'applications multi-services avec Docker",
-      "Participation à des audits de sécurité et rédaction de rapports techniques"
-    ],
-    technologies: ["Python", "Django", "Docker", "REST API", "SQLi Protection"],
-    color: "from-indigo-400 to-purple-500"
-  },
-  {
-    id: 4,
-    title: "Formateur Développement Fullstack Python (CDD)",
-    company: "Developers Institute",
-    period: "Juillet 2023 – Déc. 2023",
-    icon: FaChalkboardTeacher,
-    description: [
-      "Animation de formations Full Stack : Python, Django, HTML5, CSS3, JavaScript, Bootstrap, React.js",
-      "Encadrement de projets web complets, de l'analyse des besoins jusqu'au déploiement",
-      "Enseignement des bonnes pratiques : architecture logicielle, POO, structuration du code, gestion des erreurs",
-      "Accompagnement à l'utilisation de Git et GitHub pour le versionnement collaboratif"
-    ],
-    technologies: ["Python", "Django", "JavaScript", "React.js", "Git"],
-    color: "from-purple-400 to-pink-500"
-  }
+// Donnees structurelles (icone, couleur, technologies) - le contenu textuel
+// (titre, entreprise, periode, description) vient des fichiers de traduction
+const experienceMeta = [
+  { icon: FaLeaf, technologies: ["API REST", "Swagger", "Docker", "React", "Scrum"], color: "from-emerald-400 to-green-500" },
+  { icon: FaGraduationCap, technologies: ["React", "JWT", "REST API", "Swagger", "VPS"], color: "from-cyan-400 to-blue-500" },
+  { icon: FaCode, technologies: ["Python", "Django", "Docker", "REST API", "SQLi Protection"], color: "from-indigo-400 to-purple-500" },
+  { icon: FaChalkboardTeacher, technologies: ["Python", "Django", "JavaScript", "React.js", "Git"], color: "from-purple-400 to-pink-500" }
 ]
 
 const Experience = () => {
+  const { t } = useTranslation()
   const containerRef = useRef(null)
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -79,6 +23,13 @@ const Experience = () => {
 
   // Transformation pour l'animation de la ligne de timeline
   const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"])
+
+  const translatedItems = t('experience.items', { returnObjects: true })
+  const experiences = experienceMeta.map((meta, index) => ({
+    id: index + 1,
+    ...meta,
+    ...translatedItems[index]
+  }))
 
   return (
 
@@ -94,10 +45,10 @@ const Experience = () => {
           className="text-center mb-16"
         >
           <h1 className="text-4xl lg:text-5xl font-bold gradient-text mb-4">
-            Parcours Professionnel
+            {t('experience.title')}
           </h1>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            Découvrez mon parcours en développement full stack, DevOps et DevSecOps
+            {t('experience.subtitle')}
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto mt-4"></div>
         </motion.div>
@@ -153,7 +104,7 @@ const Experience = () => {
                       </li>
                     ))}
                   </ul>
-                  
+
                   {/* Technologies utilisées */}
                   <div className="flex flex-wrap gap-2 mt-4">
                     {exp.technologies.map((tech) => (
