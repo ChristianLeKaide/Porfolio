@@ -39,19 +39,19 @@ const About = () => {
             <div className="relative group">
               {/* Cadre avec effet glow */}
               <div className="absolute -inset-1 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-2xl blur opacity-30 group-hover:opacity-50 transition duration-300"></div>
-              <div className="relative bg-dark-secondary rounded-2xl p-8 text-center">
+              <div className="relative bg-gray-50 dark:bg-dark-secondary rounded-2xl p-8 text-center">
                 {/* Photo de profil */}
                 <div className="w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden border-4 border-cyan-400">
-                  <div className="w-full h-full bg-gray-700 flex items-center justify-center">
-                    <span className="text-gray-400"><img src="/photo.jpg" alt="" /></span>
+                  <div className="w-full h-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
+                    <span className="text-gray-600 dark:text-gray-400"><img src="/photo.jpg" alt="" /></span>
                   </div>
                 </div>
-                
+
                 <h2 className="text-2xl font-bold text-cyan-400 mb-2">
                   Christian Noukimi
                 </h2>
-                <p className="text-gray-400 mb-4">
-                  Étudiant en Master 2 Cybersécurité
+                <p className="text-gray-600 dark:text-gray-400 mb-4">
+                  Développeur Full Stack / DevOps
                 </p>
                 
                 {/* Bouton CV */}
@@ -71,48 +71,51 @@ const About = () => {
           {/* Colonne droite - Description détaillée */}
           <div className="space-y-8">
             {/* Parcours académique */}
-            <div className="bg-dark-secondary/50 p-6 rounded-xl cyber-border">
+            <div className="bg-gray-50 dark:bg-dark-secondary/50 p-6 rounded-xl cyber-border">
               <div className="flex items-center gap-3 mb-4">
                 <FaGraduationCap className="text-cyan-400 text-2xl" />
-                <h3 className="text-xl font-bold text-white">Parcours Académique</h3>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white">Parcours Académique</h3>
               </div>
               <div className="space-y-4">
                 <div>
                   <h4 className="text-lg font-semibold text-cyan-400">
-                    Master 2 Cybersécurité
+                    Master 2 Architecture des systèmes d'informations
                   </h4>
-                  <p className="text-gray-300">ECOLE IT Orléans</p>
-                  <p className="text-gray-500 text-sm">2025 – 2026</p>
-                  <p className="text-gray-400 mt-2">
-                    Formation approfondie en sécurité des systèmes d'information, 
-                    audit de sécurité, et conformité réglementaire.
-                  </p>
+                  <p className="text-gray-700 dark:text-gray-300">ECOLE IT, Orléans - France</p>
+                  <p className="text-gray-500 dark:text-gray-500 text-sm">2023 – 2026</p>
+                </div>
+                <div>
+                  <h4 className="text-lg font-semibold text-cyan-400">
+                    Licence en informatique fondamentale
+                  </h4>
+                  <p className="text-gray-700 dark:text-gray-300">Université de Yaoundé 1, Yaoundé - Cameroun</p>
+                  <p className="text-gray-500 dark:text-gray-500 text-sm">2021</p>
                 </div>
               </div>
             </div>
 
             {/* Objectifs professionnels */}
-            <div className="bg-dark-secondary/50 p-6 rounded-xl cyber-border">
+            <div className="bg-gray-50 dark:bg-dark-secondary/50 p-6 rounded-xl cyber-border">
               <div className="flex items-center gap-3 mb-4">
                 <FaShieldAlt className="text-cyan-400 text-2xl" />
-                <h3 className="text-xl font-bold text-white">Objectifs Professionnels</h3>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white">Objectifs Professionnels</h3>
               </div>
-              <p className="text-gray-300 leading-relaxed">
-                Contribuer à la sécurisation des infrastructures tout en renforçant 
-                mon expertise technique et réglementaire (ISO 27001, RGPD, NIS2). 
-                Je souhaite participer à des projets innovants dans le domaine de 
-                la cybersécurité et continuer à me former aux dernières technologies.
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                Je recherche un CDI/CDD en développement fullstack, DevOps ou DevSecOps
+                dès à présent. Mon objectif est de contribuer activement à la conception
+                et la sécurisation des infrastructures tout en renforçant mon expertise
+                technique et réglementaire.
               </p>
             </div>
 
             {/* Domaines d'expertise */}
-            <div className="bg-dark-secondary/50 p-6 rounded-xl cyber-border">
+            <div className="bg-gray-50 dark:bg-dark-secondary/50 p-6 rounded-xl cyber-border">
               <div className="flex items-center gap-3 mb-4">
                 <FaChartLine className="text-cyan-400 text-2xl" />
-                <h3 className="text-xl font-bold text-white">Domaines d'Expertise</h3>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white">Domaines d'Expertise</h3>
               </div>
               <div className="flex flex-wrap gap-2">
-                {["Pentesting", "Audit de sécurité", "DevSecOps", "ISO 27001", "RGPD", "Cryptographie", "Sécurité Cloud"].map((skill) => (
+                {["Développement Full Stack", "DevOps", "DevSecOps", "Sécurité IT/OT", "CI/CD", "Cloud AWS", "Formation"].map((skill) => (
                   <span key={skill} className="px-3 py-1 bg-cyan-500/10 text-cyan-400 rounded-full text-sm border border-cyan-500/20">
                     {skill}
                   </span>

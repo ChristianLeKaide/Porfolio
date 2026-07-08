@@ -1,0 +1,104 @@
+/* ContactInfo Component Styles */
+
+.contact-info {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+}
+
+.contact-info__link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+}
+
+.contact-info__link:hover .contact-info {
+  background: rgba(6, 182, 212, 0.05);
+}
+
+:root.light .contact-info__link:hover .contact-info {
+  background: rgba(6, 182, 212, 0.08);
+}
+
+.contact-info__icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: rgba(6, 182, 212, 0.1);
+  border-radius: var(--radius-lg);
+  color: var(--color-accent);
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  transition: all var(--transition-base);
+}
+
+:root.light .contact-info__icon-wrapper {
+  background: rgba(6, 182, 212, 0.12);
+  color: #0891b2;
+}
+
+.contact-info__link:hover .contact-info__icon-wrapper {
+  background: rgba(6, 182, 212, 0.2);
+}
+
+:root.light .contact-info__link:hover .contact-info__icon-wrapper {
+  background: rgba(6, 182, 212, 0.2);
+}
+
+.contact-info__content {
+  flex: 1;
+}
+
+.contact-info__label {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  margin: 0 0 0.25rem;
+}
+
+:root.light .contact-info__label {
+  color: #64748b;
+}
+
+.contact-info__value {
+  font-size: 1rem;
+  color: var(--color-text-primary);
+  margin: 0;
+  font-weight: 500;
+  transition: color var(--transition-base);
+}
+
+:root.light .contact-info__value {
+  color: #0f172a;
+}
+
+.contact-info__link:hover .contact-info__value {
+  color: var(--color-accent);
+}
+
+:root.light .contact-info__link:hover .contact-info__value {
+  color: #0891b2;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .contact-info {
+    gap: var(--spacing-xs);
+  }
+
+  .contact-info__icon-wrapper {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .contact-info__value {
+    font-size: 0.9375rem;
+  }
+}

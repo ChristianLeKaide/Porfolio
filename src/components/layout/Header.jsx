@@ -19,7 +19,7 @@ const Header = () => {
   ]
 
   return (
-    <header className="fixed top-0 w-full bg-dark-secondary/80 backdrop-blur-md z-50 border-b border-cyan-500/20">
+    <header className="fixed top-0 w-full bg-white/80 dark:bg-dark-secondary/80 backdrop-blur-md z-50 border-b border-cyan-500/20">
       <nav className="container mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
           <Link to="/" className="text-2xl font-bold gradient-text">
@@ -35,7 +35,7 @@ const Header = () => {
                 className={`relative px-3 py-2 transition-all ${
                   location.pathname === item.path
                     ? 'text-cyan-400'
-                    : 'text-gray-300 hover:text-cyan-400'
+                    : 'text-gray-600 dark:text-gray-300 hover:text-cyan-400'
                 }`}
               >
                 {item.name}
@@ -52,7 +52,7 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-gray-300"
+            className="md:hidden text-gray-600 dark:text-gray-300"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <HiX size={24} /> : <HiMenu size={24} />}
@@ -74,7 +74,7 @@ const Header = () => {
                 className={`block px-3 py-2 transition-all ${
                   location.pathname === item.path
                     ? 'text-cyan-400 bg-cyan-400/10 rounded-lg'
-                    : 'text-gray-300 hover:text-cyan-400'
+                    : 'text-gray-600 dark:text-gray-300 hover:text-cyan-400'
                 }`}
                 onClick={() => setIsOpen(false)}
               >

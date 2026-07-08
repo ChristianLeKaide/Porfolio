@@ -20,8 +20,8 @@ const Hero = () => {
           >
             <div className="relative">
               <div className="w-64 h-64 lg:w-80 lg:h-80 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full p-1">
-                <div className="w-full h-full bg-dark-primary rounded-full overflow-hidden flex items-center justify-center">
-                  <span className="text-gray-400 text-center">
+                <div className="w-full h-full bg-gray-100 dark:bg-dark-primary rounded-full overflow-hidden flex items-center justify-center">
+                  <span className="text-gray-600 dark:text-gray-400 text-center">
                     <img src="/photo.jpg" alt="" />
                   </span>
                 </div>
@@ -41,16 +41,17 @@ const Hero = () => {
               Christian <span className="gradient-text">Noukimi</span>
             </h1>
             
-            <p className="text-xl lg:text-2xl text-gray-300 mb-4">
-              Étudiant en <span className="text-cyan-400">Master 2 Cybersécurité</span>
-            </p>
-            
-            <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto lg:mx-0">
-              Passionné par la sécurité informatique, le pentesting et la protection 
-              des systèmes d'information. Basé à Orléans, France.
+            <p className="text-xl lg:text-2xl text-gray-700 dark:text-gray-300 mb-4">
+              <span className="text-cyan-400">Développeur Full Stack / DevOps</span>
             </p>
 
-            <TypingAnimation texts={["Cybersecurity Engineer","Pentester","Fullstack Developer", "IT Security Manager", "DevOps", "Formateur Python"]} />
+            <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto lg:mx-0">
+              Diplômé Master 2 Architecture des systèmes d'informations, passionné par le
+              développement logiciel et le DevOps. Basé en France, je recherche un CDI/CDD
+              en développement fullstack, DevOps ou DevSecOps.
+            </p>
+
+            <TypingAnimation texts={["Full Stack Developer", "DevOps Engineer", "DevSecOps", "React & Node.js", "Python & Django", "Formateur Python"]} />
 
             {/* Boutons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mt-8">
@@ -78,7 +79,7 @@ const Hero = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-8 py-3 border-2 border-gray-600 text-gray-300 hover:border-cyan-400 hover:text-cyan-400 rounded-lg font-semibold transition-all w-full sm:w-auto"
+                  className="px-8 py-3 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-cyan-400 hover:text-cyan-400 rounded-lg font-semibold transition-all w-full sm:w-auto"
                 >
                   Me contacter
                 </motion.button>

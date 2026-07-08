@@ -1,0 +1,98 @@
+/* Skills Page Styles */
+
+.skills-page {
+  min-height: 100vh;
+  padding-top: var(--spacing-2xl);
+  padding-bottom: var(--spacing-2xl);
+}
+
+.skills-page__container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.skills-page__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: var(--spacing-2xl);
+  margin-bottom: var(--spacing-2xl);
+}
+
+/* Continuous learning section */
+.skills-page__learning {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--spacing-2xl);
+  padding-top: var(--spacing-xl);
+  border-top: 1px solid var(--color-border);
+}
+
+.skills-page__learning-content {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: rgba(6, 182, 212, 0.1);
+  border: 1px solid rgba(6, 182, 212, 0.2);
+  border-radius: 9999px;
+}
+
+.skills-page__learning-icon {
+  color: var(--color-accent);
+  font-size: 1.25rem;
+}
+
+.skills-page__learning-text {
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.skills-page__learning-highlight {
+  color: var(--color-accent);
+  font-weight: 600;
+  margin-left: 0.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .skills-page__grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+  }
+}
+
+@media (max-width: 768px) {
+  .skills-page {
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+  }
+
+  .skills-page__container {
+    padding: 0 var(--spacing-sm);
+  }
+
+  .skills-page__learning-content {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-md);
+  }
+
+  .skills-page__learning-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .skills-page__learning-highlight {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .skills-page__learning-content {
+    font-size: 0.9375rem;
+  }
+}

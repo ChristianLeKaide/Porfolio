@@ -1,0 +1,172 @@
+/* Global styles for the portfolio */
+
+:root {
+  /* Colors - Dark Mode (default) */
+  --color-primary: #0f172a;
+  --color-secondary: #1e293b;
+  --color-accent: #06b6d4;
+  --color-accent-light: #22d3ee;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #cbd5e1;
+  --color-text-muted: #94a3b8;
+  --color-border: rgba(6, 182, 212, 0.2);
+  --color-border-hover: rgba(6, 182, 212, 0.4);
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  --spacing-2xl: 4rem;
+
+  /* Border radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+
+  /* Transitions */
+  --transition-fast: 150ms ease-in-out;
+  --transition-base: 300ms ease-in-out;
+  --transition-slow: 500ms ease-in-out;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  --shadow-cyan: 0 0 20px rgba(6, 182, 212, 0.25);
+}
+
+/* Light mode colors */
+:root.light {
+  --color-primary: #ffffff;
+  --color-secondary: #f8fafc;
+  --color-accent: #0891b2;
+  --color-accent-light: #06b6d4;
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #334155;
+  --color-text-muted: #64748b;
+  --color-border: rgba(148, 163, 184, 0.3);
+  --color-border-hover: rgba(8, 145, 178, 0.5);
+  --shadow-cyan: 0 0 20px rgba(8, 145, 178, 0.2);
+}
+
+/* Base elements */
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+html.light {
+  color-scheme: light;
+}
+
+body {
+  background-color: var(--color-primary);
+  color: var(--color-text-primary);
+  font-family: system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, #06b6d4, #0ea5e9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Cyber border utility */
+.cyber-border {
+  border: 1px solid var(--color-border);
+  transition: border-color var(--transition-base);
+}
+
+.cyber-border:hover {
+  border-color: var(--color-border-hover);
+}
+
+/* Smooth transitions for theme changes */
+html.theme-transition,
+html.theme-transition *,
+html.theme-transition *::before,
+html.theme-transition *::after {
+  transition: background-color 0.3s ease-in-out !important,
+    color 0.3s ease-in-out !important,
+    border-color 0.3s ease-in-out !important,
+    box-shadow 0.3s ease-in-out !important,
+    fill 0.3s ease-in-out !important,
+    stroke 0.3s ease-in-out !important;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: var(--radius-sm);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-light);
+}
+
+/* Input styling */
+input,
+textarea,
+select {
+  transition: border-color var(--transition-base),
+    background-color var(--transition-base);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1);
+}
+
+/* Links styling */
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color var(--transition-base);
+}
+
+a:hover {
+  color: var(--color-accent-light);
+}
+
+/* Accessibility - Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Accessibility - High contrast mode */
+@media (prefers-contrast: more) {
+  :root {
+    --color-border: rgba(6, 182, 212, 0.5);
+    --color-border-hover: rgba(6, 182, 212, 0.8);
+  }
+
+  :root.light {
+    --color-border: rgba(8, 145, 178, 0.5);
+    --color-border-hover: rgba(8, 145, 178, 0.8);
+  }
+}

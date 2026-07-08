@@ -1,49 +1,85 @@
-// src/components/common/ThemeToggle.jsx
-import { useState, useEffect } from 'react'
+/**
+ * ThemeToggle Component - Button to switch between dark and light themes
+ * Includes smooth animations and icon transitions
+ */
+import { motion } from 'framer-motion'
 import { FaSun, FaMoon } from 'react-icons/fa'
+import { useTheme } from '../../context/ThemeContext'
+import './ThemeToggle.css'
 
+/**
+ * ThemeToggle - Animated theme toggle button
+ * @component
+ * @returns {JSX.Element} Animated theme toggle button
+ *
+ * @example
+ * <ThemeToggle />
+ */
 const ThemeToggle = () => {
-  const [darkMode, setDarkMode] = useState(true)
-
-  useEffect(() => {
-    // Vérifier le thème sauvegardé dans localStorage
-    const savedTheme = localStorage.getItem('theme')
-    const isDark = savedTheme === 'dark' || (savedTheme === null && true)
-    
-    setDarkMode(isDark)
-    
-    if (isDark) {
-      document.documentElement.classList.add('dark')
-    } else {
-      document.documentElement.classList.remove('dark')
-    }
-  }, [])
-
-  const toggleTheme = () => {
-    const newDarkMode = !darkMode
-    setDarkMode(newDarkMode)
-    
-    if (newDarkMode) {
-      document.documentElement.classList.add('dark')
-      localStorage.setItem('theme', 'dark')
-    } else {
-      document.documentElement.classList.remove('dark')
-      localStorage.setItem('theme', 'light')
-    }
-  }
+  const { darkMode, toggleTheme } = useTheme()
 
   return (
-    <button
+    <motion.button
       onClick={toggleTheme}
-      className="p-2 rounded-lg bg-gray-200 dark:bg-dark-secondary/50 hover:bg-cyan-500/20 transition-colors ml-4"
-      aria-label="Changer le thème"
+      className="theme-toggle"
+      aria-label={darkMode ? 'Passer en mode clair' : 'Passer en mode sombre'}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      transition={{ type: 'spring', stiffness: 400, damping: 10 }}
     >
-      {darkMode ? (
-        <FaSun className="text-yellow-400 text-lg" />
-      ) : (
-        <FaMoon className="text-cyan-400 text-lg" />
-      )}
-    </button>
+      <motion.div
+        className="theme-toggle__icon-wrapper"
+        initial={false}
+        animate={{
+          rotate: darkMode ? 0 : 180,
+          scale: 1
+        }}
+        transition={{
+          duration: 0.5,
+          type: 'spring',
+          stiffness: 200,
+          damping: 15
+        }}
+      >
+        {darkMode ? (
+          <motion.div
+            key="sun"
+            initial={{ opacity: 0, rotate: -180 }}
+            animate={{ opacity: 1, rotate: 0 }}
+            exit={{ opacity: 0, rotate: 180 }}
+            transition={{ duration: 0.3 }}
+            className="theme-toggle__icon theme-toggle__icon--sun"
+          >
+            <FaSun />
+          </motion.div>
+        ) : (
+          <motion.div
+            key="moon"
+            initial={{ opacity: 0, rotate: -180 }}
+            animate={{ opacity: 1, rotate: 0 }}
+            exit={{ opacity: 0, rotate: 180 }}
+            transition={{ duration: 0.3 }}
+            className="theme-toggle__icon theme-toggle__icon--moon"
+          >
+            <FaMoon />
+          </motion.div>
+        )}
+      </motion.div>
+
+      {/* Background glow effect */}
+      <motion.div
+        className="theme-toggle__glow"
+        animate={{
+          opacity: [0, 0.5, 0],
+          scale: [1, 1.2, 1]
+        }}
+        transition={{
+          duration: 0.6,
+          repeat: Infinity,
+          repeatDelay: 3
+        }}
+      />
+    </motion.button>
   )
 }
 

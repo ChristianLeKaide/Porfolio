@@ -1,0 +1,297 @@
+/* Contact Page Styles */
+
+.contact-page {
+  min-height: 100vh;
+  padding-top: var(--spacing-2xl);
+  padding-bottom: var(--spacing-2xl);
+}
+
+.contact-page__container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.contact-page__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-2xl);
+}
+
+/* Info section */
+.contact-page__info-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.contact-page__info-card {
+  background: rgba(30, 41, 59, 0.3);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border);
+  transition: all var(--transition-base);
+}
+
+:root.light .contact-page__info-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+:root.light .contact-page__info-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: #cbd5e1;
+}
+
+.contact-page__info-card:hover {
+  border-color: var(--color-border-hover);
+}
+
+.contact-page__card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0 0 var(--spacing-lg);
+}
+
+:root.light .contact-page__card-title {
+  color: #0f172a;
+}
+
+.contact-page__info-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+/* Social links */
+.contact-page__social-links {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.contact-page__social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: rgba(6, 182, 212, 0.1);
+  border-radius: var(--radius-lg);
+  color: var(--color-accent);
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: all var(--transition-base);
+  border: 1px solid rgba(6, 182, 212, 0.2);
+}
+
+:root.light .contact-page__social-icon {
+  background: rgba(6, 182, 212, 0.08);
+  border: 1px solid #cbd5e1;
+  color: #0891b2;
+}
+
+.contact-page__social-icon:hover {
+  background: rgba(6, 182, 212, 0.2);
+  border-color: rgba(6, 182, 212, 0.5);
+}
+
+:root.light .contact-page__social-icon:hover {
+  background: rgba(6, 182, 212, 0.15);
+  border-color: #06b6d4;
+  color: #06b6d4;
+}
+
+/* Map */
+.contact-page__map {
+  width: 100%;
+  height: 256px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+
+:root.light .contact-page__map {
+  border: 1px solid #e2e8f0;
+}
+
+/* Form section */
+.contact-page__form-section {
+  display: flex;
+  align-items: flex-start;
+}
+
+.contact-page__form-card {
+  background: rgba(30, 41, 59, 0.3);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border);
+  width: 100%;
+}
+
+:root.light .contact-page__form-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.contact-page__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.contact-page__form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.contact-page__form-label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+:root.light .contact-page__form-label {
+  color: #334155;
+}
+
+.contact-page__form-input,
+.contact-page__form-textarea {
+  padding: 0.75rem 1rem;
+  background: var(--color-primary);
+  border: 1px solid rgba(6, 182, 212, 0.2);
+  border-radius: var(--radius-lg);
+  color: var(--color-text-primary);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: all var(--transition-base);
+}
+
+:root.light .contact-page__form-input,
+:root.light .contact-page__form-textarea {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #0f172a;
+}
+
+:root.light .contact-page__form-input:focus,
+:root.light .contact-page__form-textarea:focus {
+  background: #ffffff;
+  border-color: #06b6d4;
+  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1);
+}
+
+.contact-page__form-input:focus,
+.contact-page__form-textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1);
+}
+
+.contact-page__form-textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+/* Status message */
+.contact-page__status {
+  padding: var(--spacing-md);
+  border-radius: var(--radius-lg);
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+.contact-page__status--success {
+  background: rgba(34, 197, 94, 0.2);
+  color: #22c55e;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+:root.light .contact-page__status--success {
+  background: rgba(34, 197, 94, 0.1);
+  color: #16a34a;
+}
+
+.contact-page__status--error {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+:root.light .contact-page__status--error {
+  background: rgba(239, 68, 68, 0.1);
+  color: #dc2626;
+}
+
+.contact-page__submit-button {
+  width: 100%;
+  margin-top: var(--spacing-md);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .contact-page__content {
+    gap: var(--spacing-xl);
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-page {
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+  }
+
+  .contact-page__container {
+    padding: 0 var(--spacing-sm);
+  }
+
+  .contact-page__content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .contact-page__info-card {
+    padding: var(--spacing-md);
+  }
+
+  .contact-page__card-title {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .contact-page__map {
+    height: 200px;
+  }
+
+  .contact-page__social-links {
+    gap: var(--spacing-sm);
+  }
+
+  .contact-page__social-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.25rem;
+  }
+
+  .contact-page__form-card {
+    padding: var(--spacing-md);
+  }
+
+  .contact-page__form {
+    gap: var(--spacing-md);
+  }
+}
+
+@media (max-width: 640px) {
+  .contact-page__form-input,
+  .contact-page__form-textarea {
+    font-size: 16px;
+  }
+
+  .contact-page__form-label {
+    font-size: 0.9375rem;
+  }
+}

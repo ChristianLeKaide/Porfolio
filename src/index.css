@@ -9,50 +9,17 @@
   }
   
   body {
-    @apply bg-dark-primary text-white dark:bg-dark-primary dark:text-white;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
   }
-}
-
-/* Styles pour le mode clair */
-:root {
-  --bg-primary: #ffffff;
-  --bg-secondary: #f3f4f6;
-  --text-primary: #111827;
-  --text-secondary: #4b5563;
-}
-
-.dark {
-  --bg-primary: #0a0a0f;
-  --bg-secondary: #1a1a2e;
-  --text-primary: #ffffff;
-  --text-secondary: #9ca3af;
 }
 
 @layer components {
   .gradient-text {
     @apply bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent;
   }
-  
+
   .cyber-border {
     @apply border border-cyan-500/20 dark:border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-300;
-  }
-  
-  .glow-effect {
-    @apply shadow-lg shadow-cyan-500/20;
-  }
-  
-  /* Classes pour le mode clair/sombre */
-  .card-bg {
-    @apply bg-white dark:bg-dark-secondary;
-  }
-  
-  .text-primary {
-    @apply text-gray-900 dark:text-white;
-  }
-  
-  .text-secondary {
-    @apply text-gray-600 dark:text-gray-400;
   }
 }
 
